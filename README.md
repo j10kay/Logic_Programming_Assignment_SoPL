@@ -1,2 +1,2 @@
 # Logic_Programming_Assignment_SoPL
-Developed using Prolog online compiler
+Developed using SWI-Prolog for Windows
