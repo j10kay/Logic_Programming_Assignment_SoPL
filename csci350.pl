@@ -18,3 +18,7 @@ min-list([X], X):- number(X).
 min-list([X,Y|Z], Min):-
      minimum(X,Y,X), 
      min-list([X|Z], Min).
+
+min-list([X,Y|Z], Min):-
+     minimum(X,Y,Y),
+     min-list([Y|Z], Min). 
