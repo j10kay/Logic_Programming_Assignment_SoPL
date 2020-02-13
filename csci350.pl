@@ -13,3 +13,8 @@ minimum(X,Y,X):- number(X), number(Y), X < Y.
 minimum(X,Y,Y):- number(X), number(Y), Y < X.
 minimum(X,Y,Y):- \+number(X).
 minimum(X,Y,X):- \+number(Y).
+
+min-list([X], X):- number(X).
+min-list([X,Y|Z], Min):-
+     minimum(X,Y,X), 
+     min-list([X|Z], Min).
