@@ -8,3 +8,8 @@ sum-up-numbers-general([X|Y], N) :-
      (number(X), sum-up-numbers-general(Y, A), N is X + A); 
      (is_list(X), sum-up-numbers-general(Y, A), sum-up-numbers-general(X, V), N is A + V);
      ((\+ number(X), \+ is_list(X)), sum-up-numbers-general(Y, N)).
+
+minimum(X,Y,X):- number(X), number(Y), X < Y.
+minimum(X,Y,Y):- number(X), number(Y), Y < X.
+minimum(X,Y,Y):- \+number(X).
+minimum(X,Y,X):- \+number(Y).
