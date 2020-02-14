@@ -27,6 +27,12 @@ min-above-min(L1, [], N):-
      (\+length(L1, 0), min-list(L1, Min)),
      N is Min. 
      
+min-above-min(L1, L2, N):-
+     min-list(L2, Min),
+     include(greater(Min), L1, MinsAbove),
+     min-list(MinsAbove, X),
+     N is X.
+     
 unwrap-list([], []) :- !.
 unwrap-list([X|Y], UnwrappedList) :-
     !,
