@@ -23,6 +23,10 @@ min-list([X,Y|Z], Min):-
      minimum(X,Y,Y),
      min-list([Y|Z], Min). 
 
+min-above-min(L1, [], N):-
+     (\+length(L1, 0), min-list(L1, Min)),
+     N is Min. 
+     
 unwrap-list([], []) :- !.
 unwrap-list([X|Y], UnwrappedList) :-
     !,
