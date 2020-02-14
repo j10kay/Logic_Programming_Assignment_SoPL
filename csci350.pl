@@ -33,3 +33,9 @@ unwrap-list(L, [L]).
 
 is-unique([]).
 is-unique([X|Y]):-
+\+member(X,Y),
+     is-unique(Y).
+
+common-unique-elements(_, _, []).
+common-unique-elements(L1, L2, N):-
+    [X|Y] = N,
