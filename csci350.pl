@@ -44,3 +44,5 @@ common-unique-elements(L1, L2, N):-
     unwrap-list(L1, UnwrappedL1),
     unwrap-list(L2, UnwrappedL2),
     member(X, UnwrappedL1),
+    member(X, UnwrappedL2),
+    common-unique-elements(L1, L2, Y). 
