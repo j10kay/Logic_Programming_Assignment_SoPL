@@ -46,13 +46,17 @@ is-unique([X|Y]):-
 \+member(X,Y),
      is-unique(Y).
 
-common-unique-elements(_, _, []).
 common-unique-elements(L1, L2, N):-
-    [X|Y] = N,
-    \+ is_list(X),
-    is-unique(N),
-    unwrap-list(L1, UnwrappedL1),
-    unwrap-list(L2, UnwrappedL2),
-    member(X, UnwrappedL1),
-    member(X, UnwrappedL2),
-    common-unique-elements(L1, L2, Y). 
+    unwrap-list(L1, L3),
+    unwrap-list(L2, L4),
+    common-unique-elements1(L3, L4, N1),
+    unique(N1, N).
+
+common-unique-elements1([], _, []).
+common-unique-elements1([A|B], L2, N):-
+    member(A, L2),
+    common-unique-elements(B, L2, N2),
+    append([A], N2, N);
+    \+(member(A, L2)),
+    common-unique-elements(B, L2, N).
+
