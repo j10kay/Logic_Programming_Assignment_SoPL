@@ -28,3 +28,8 @@ unwrap-list([X|Y], UnwrappedList) :-
     !,
     unwrap-list(X, NewX),
     unwrap-list(Y, NewY),
+    append(NewX, NewY, UnwrappedList).
+unwrap-list(L, [L]).
+
+is-unique([]).
+is-unique([X|Y]):-
