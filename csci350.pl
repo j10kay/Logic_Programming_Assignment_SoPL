@@ -60,3 +60,10 @@ common-unique-elements1([A|B], L2, N):-
     \+(member(A, L2)),
     common-unique-elements(B, L2, N).
 
+unique([], []).
+unique([A|B], L):-
+    \+(member(A, B)),
+    unique(B, L2),
+    append([A], L2, L);
+    member(A, B),
+    unique(B, L).
