@@ -39,3 +39,8 @@ is-unique([X|Y]):-
 common-unique-elements(_, _, []).
 common-unique-elements(L1, L2, N):-
     [X|Y] = N,
+    \+ is_list(X),
+    is-unique(N),
+    unwrap-list(L1, UnwrappedL1),
+    unwrap-list(L2, UnwrappedL2),
+    member(X, UnwrappedL1),
