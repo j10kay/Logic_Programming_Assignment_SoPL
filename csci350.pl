@@ -41,11 +41,6 @@ unwrap-list([X|Y], UnwrappedList) :-
     append(NewX, NewY, UnwrappedList).
 unwrap-list(L, [L]).
 
-is-unique([]).
-is-unique([X|Y]):-
-\+member(X,Y),
-     is-unique(Y).
-
 common-unique-elements(L1, L2, N):-
     unwrap-list(L1, L3),
     unwrap-list(L2, L4),
